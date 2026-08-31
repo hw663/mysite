@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flea Market</title>
+
+<style>
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+font-family: Arial, "Noto Sans JP", sans-serif;
+background: #f7f7f7;
+color: #222;
+}
+
+header {
+height: 80px;
+background: white;
+border-bottom: 1px solid #ddd;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 6%;
+}
+
+.logo {
+font-size: 32px;
+font-weight: bold;
+}
+
+.header-right {
+display: flex;
+align-items: center;
+gap: 25px;
+}
+
+.mypage {
+font-weight: bold;
+}
+
+.sell-button {
+background: #ff3b30;
+color: white;
+border: none;
+padding: 14px 25px;
+border-radius: 8px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.container {
+max-width: 1100px;
+margin: 25px auto;
+padding: 0 20px;
+}
+
+/* 検索 */
+.search-box {
+background: white;
+padding: 25px;
+border-radius: 12px;
+margin-bottom: 25px;
+}
+
+.search {
+width: 100%;
+padding: 16px;
+border: 1px solid #ddd;
+border-radius: 8px;
+font-size: 16px;
+}
+
+/* カテゴリー */
+.category {
+background: white;
+padding: 25px;
+border-radius: 12px;
+margin-bottom: 25px;
+}
+
+.category h2 {
+margin-top: 0;
+}
+
+.categories {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.category button {
+border: none;
+background: #f0f0f0;
+padding: 12px 25px;
+border-radius: 8px;
+font-size: 15px;
+cursor: pointer;
+}
+
+.category button:first-child {
+background: #ff3b30;
+color: white;
+}
+
+/* 商品 */
+.products {
+background: white;
+padding: 25px;
+border-radius: 12px;
+}
+
+.products h2 {
+margin-top: 0;
+}
+
+.product-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 18px;
+}
+
+.product {
+border: 1px solid #ddd;
+border-radius: 10px;
+overflow: hidden;
+background: white;
+cursor: pointer;
+transition: 0.2s;
+}
+
+.product:hover {
+transform: translateY(-4px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-image {
+height: 180px;
+background: #eee;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 55px;
+}
+
+.product-info {
+padding: 12px;
+}
+
+.product-name {
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.price {
+color: #ff3b30;
+font-size: 20px;
+font-weight: bold;
+}
+
+.likes {
+float: right;
+color: #777;
+}
+
+/* 出品ボタン */
+.big-sell {
+margin-top: 30px;
+width: 100%;
+padding: 20px;
+background: #ff3b30;
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 20px;
+font-weight: bold;
+cursor: pointer;
+}
+
+/* フッター */
+footer {
+text-align: center;
+padding: 50px 20px;
+color: #777;
+}
+
+.footer-links {
+display: flex;
+justify-content: center;
+gap: 40px;
+margin-bottom: 25px;
+}
+
+/* スマホ */
+@media (max-width: 800px) {
+
+.product-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.logo {
+font-size: 24px;
+}
+
+.mypage {
+display: none;
+}
+}
+
+@media (max-width: 500px) {
+
+.product-grid {
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+
+.product-image {
+height: 140px;
+}
+
+header {
+padding: 0 15px;
+}
+
+.header-right {
+gap: 10px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Flea Market</div>
+
+<div class="header-right">
+<div class="mypage">👤 マイページ</div>
+<button class="sell-button">出品</button>
+</div>
+</header>
+
+
+<div class="container">
+
+<!-- 検索 -->
+<section class="search-box">
+<input
+class="search"
+type="text"
+placeholder="商品を検索 🔍"
+>
+</section>
+
+
+<!-- カテゴリー -->
+<section class="category">
+
+<h2>商品のカテゴリー</h2>
+
+<div class="categories">
+<button>すべて</button>
+<button>ファッション</button>
+<button>家電</button>
+<button>本・雑誌</button>
+<button>ゲーム</button>
+<button>スポーツ</button>
+<button>その他</button>
+</div>
+
+</section>
+
+
+<!-- 商品一覧 -->
+<section class="products">
+
+<h2>商品一覧</h2>
+
+<div class="product-grid">
+
+<div class="product">
+<div class="product-image">👕</div>
+<div class="product-info">
+<div class="product-name">黒のパーカー</div>
+<span class="price">¥2,500</span>
+<span class="likes">♡ 12</span>
+</div>
+</div>
+
+<div class="product">
+<div class="product-image">👟</div>
+<div class="product-info">
+<div class="product-name">スニーカー</div>
+<span class="price">¥6,800</span>
+<span class="likes">♡ 23</span>
+</div>
+</div>
+
+<div class="product">
+<div class="product-image">🎮</div>
+<div class="product-info">
+<div class="product-name">ゲーム機</div>
+<span class="price">¥22,000</span>
+<span class="likes">♡ 31</span>
+</div>
+</div>
+
+<div class="product">
+<div class="product-image">🍚</div>
+<div class="product-info">
+<div class="product-name">炊飯器</div>
+<span class="price">¥3,800</span>
+<span class="likes">♡ 7</span>
+</div>
+</div>
+
+<div class="product">
+<div class="product-image">🧥</div>
+<div class="product-info">
+<div class="product-name">トレンチコート</div>
+<span class="price">¥4,900</span>
+<span class="likes">♡ 15</span>
+</div>
+</div>
+
+<div class="product">
+<div class="product-image">📚</div>
+<div class="product-info">
+<div class="product-name">漫画 全巻セット</div>
+<span class="price">¥8,000</span>
+<span class="likes">♡ 29</span>
+</div>
+</div>
+
+<div class="product">
+<div class="product-image">🎒</div>
+<div class="product-info">
+<div class="product-name">リュックサック</div>
+<span class="price">¥2,300</span>
+<span class="likes">♡ 9</span>
+</div>
+</div>
+
+<div class="product">
+<div class="product-image">📱</div>
+<div class="product-info">
+<div class="product-name">スマートフォン</div>
+<span class="price">¥28,500</span>
+<span class="likes">♡ 18</span>
+</div>
+</div>
+
+</div>
+
+<button class="big-sell">📷　出品する</button>
+
+</section>
+
+</div>
+
+
+<footer>
+
+<div class="footer-links">
+<span>利用規約</span>
+<span>プライバシーポリシー</span>
+<span>ヘルプ</span>
+<span>お問い合わせ</span>
+</div>
+
+<div>© 2026 Flea Market</div>
+
+</footer>
+
+</body>
+</html>
